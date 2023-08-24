@@ -14,6 +14,39 @@ public class Seleccion {
             new Cake("Pastel de Vainilla", 6),
             new Cake("Pastel de Fresa", 2)
         };
+
+        System.out.print("\n\tPasteleria\n\nIngresa su opcion:\n\n1:Pastel mas barto\n2:Pastel mas caro\n\nOpcion: ");
+        op = sc.nextInt();
+
+        if (op == 1) {
+
+            // Encontrar el pastel más barato
+            Cake barato = cakes[0];
+
+            //bucle for que recorre la matris cake desde indice 1 al final 
+            for (int i = 1; i < cakes.length; i++) {
+
+                // En cada iteración del bucle, se compara el precio del pastel actual
+                if (cakes[i].getPrice() < barato.getPrice()) { 
+                    barato = cakes[i];
+                }
+            }
+            // Imprimir el resultado
+            System.out.println("\nEl pastel mas barato es: " + barato.getName() +
+                    " con un precio de " + barato.getPrice());
+        } else if (op == 2) {
+            // Encontrar el pastel más caro
+            Cake caro = cakes[0];
+
+            for (int i = 1; i < cakes.length; i++) {
+
+                if (cakes[i].getPrice() > caro.getPrice()) { // 
+                    caro = cakes[i];
+                }
+            }
+            // Imprimir el resultado
+            System.out.println("\nEl pastel mas caro es: " + caro.getName() +" con un precio de " + caro.getPrice());
+        }
     }
 }
 
