@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Seleccion {
 
     public static void main(String[] args) {
-        do {
+        do { //siempre se ejecua uan vez
             Scanner sc = new Scanner(System.in);
             int op;
 
             // Arreglo de pasteles con sus nombres - precios
             Cake[] cakes = {
-                    new Cake("Pastel Tres Leches", 85),
+                    new Cake("Pastel Tres Leches", 85), //Objetos - Instancias
                     new Cake("Pastel de Chocolate", 60),
                     new Cake("Pastel de Vainilla", 65),
                     new Cake("Pastel de Fresa", 55)
@@ -60,7 +60,7 @@ public class Seleccion {
                     break;
                 }
             }else if (op == 3) {
-                // Ordenar los pasteles por precio de menor a mayor
+                // Ordenar los pasteles de menor a mayor
                 Arrays.sort(cakes, Comparator.comparing(Cake::getPrice));
 
                 // Mostrar los pasteles ordenados
@@ -69,7 +69,7 @@ public class Seleccion {
                     System.out.println(cake.getName() + ": " + cake.getPrice());
                 }
             }
-        } while (10 == 10);
+        } while (0==0);
     }
 }
 
@@ -78,7 +78,7 @@ class Cake {
     // Representamos objetos y cada objeto Cake tiene dos propiedades
     private String name;
     private int price;
-
+    //Constructor
     public Cake(String name, int price) {
         this.name = name;
         this.price = price;
