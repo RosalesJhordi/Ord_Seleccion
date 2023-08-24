@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Seleccion {
@@ -7,7 +9,7 @@ public class Seleccion {
             Scanner sc = new Scanner(System.in);
             int op;
 
-            // Arreglo de pasteles con sus precios
+            // Arreglo de pasteles con sus nombres - precios
             Cake[] cakes = {
                     new Cake("Pastel Tres Leches", 85),
                     new Cake("Pastel de Chocolate", 60),
@@ -15,8 +17,7 @@ public class Seleccion {
                     new Cake("Pastel de Fresa", 55)
             };
 
-            System.out.print(
-                    "\n\tPasteleria\n\nIngresa su opcion:\n\n1:Pastel mas barto\n2:Pastel mas caro\n\nOpcion: ");
+            System.out.print("\n\tPasteleria\n\nIngresa su opcion:\n\n1:Pastel mas barato\n2:Pastel mas caro\n3:Ver Precios\n\nOpcion: ");
             op = sc.nextInt();
 
             if (op == 1) {
@@ -34,7 +35,7 @@ public class Seleccion {
                 }
                 // Imprimir el resultado
                 System.out.println("\nEl pastel mas barato es: " + barato.getName() + " con un precio de "+ barato.getPrice() + " Soles");
-                System.out.println("\nSalir o Preguntar de nuevo ? (1 o 2): ");
+                System.out.print("\nSalir o Preguntar de nuevo ? (1 o 2): ");
                 int fn = sc.nextInt();
                 if (fn == 1) {
                     System.out.println("Saliendo...");
@@ -46,20 +47,27 @@ public class Seleccion {
 
                 for (int i = 1; i < cakes.length; i++) {
 
-                    if (cakes[i].getPrice() > caro.getPrice()) { //
+                    if (cakes[i].getPrice() > caro.getPrice()) {
                         caro = cakes[i];
                     }
                 }
                 // Imprimir el resultado
                 System.out.println("\nEl pastel mas caro es: " + caro.getName() + " con un precio de " + caro.getPrice()+ " Soles");
-                System.out.println("\nSalir o Preguntar de nuevo ? (1 o 2): ");
+                System.out.print("\nSalir o Preguntar de nuevo ? (1 o 2): ");
                 int fn = sc.nextInt();
                 if (fn == 1) {
                     System.out.println("\n\tSaliendo...");
                     break;
                 }
-            } else {
-                System.out.println("\nOpcion No valida.....Saliendo");
+            }else if (op == 3) {
+                // Ordenar los pasteles por precio de menor a mayor
+                Arrays.sort(cakes, Comparator.comparing(Cake::getPrice));
+
+                // Mostrar los pasteles ordenados
+                System.out.println("\n\tPrecios\n");
+                for (Cake cake : cakes) {
+                    System.out.println(cake.getName() + ": " + cake.getPrice());
+                }
             }
         } while (10 == 10);
     }
