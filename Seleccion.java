@@ -16,7 +16,7 @@ public class Seleccion {
             };
 
             System.out.print(
-                    "\n\tPasteleria\n\nIngresa su opcion:\n\n1:Pastel mas barto\n2:Pastel mas caro\n\n\tCualquier numero para salir\n\nOpcion: ");
+                    "\n\tPasteleria\n\nIngresa su opcion:\n\n1:Pastel mas barto\n2:Pastel mas caro\n\nOpcion: ");
             op = sc.nextInt();
 
             if (op == 1) {
@@ -33,7 +33,13 @@ public class Seleccion {
                     }
                 }
                 // Imprimir el resultado
-                System.out.println("\nEl pastel mas barato es: " + barato.getName() +" con un precio de " + barato.getPrice() + " Soles");
+                System.out.println("\nEl pastel mas barato es: " + barato.getName() + " con un precio de "+ barato.getPrice() + " Soles");
+                System.out.println("\nSalir o Preguntar de nuevo ? (1 o 2): ");
+                int fn = sc.nextInt();
+                if (fn == 1) {
+                    System.out.println("Saliendo...");
+                    break;
+                }
             } else if (op == 2) {
                 // Encontrar el pastel más caro
                 Cake caro = cakes[0];
@@ -45,19 +51,22 @@ public class Seleccion {
                     }
                 }
                 // Imprimir el resultado
-                System.out
-                        .println("\nEl pastel mas caro es: " + caro.getName() + " con un precio de " + caro.getPrice() + " Soles");
+                System.out.println("\nEl pastel mas caro es: " + caro.getName() + " con un precio de " + caro.getPrice()+ " Soles");
+                System.out.println("\nSalir o Preguntar de nuevo ? (1 o 2): ");
+                int fn = sc.nextInt();
+                if (fn == 1) {
+                    System.out.println("\n\tSaliendo...");
+                    break;
+                }
             } else {
-                System.out.println("Opcion No valida.....Saliendo");
-                break;
+                System.out.println("\nOpcion No valida.....Saliendo");
             }
         } while (10 == 10);
     }
 }
 
-
 class Cake {
-    
+
     // Representamos objetos y cada objeto Cake tiene dos propiedades
     private String name;
     private int price;
